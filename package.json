@@ -1,0 +1,14 @@
+{
+  "name": "products_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:up": "docker compose -f ./infra/docker-compose.yml up  -d",
+    "docker:down": "docker compose -f ./infra/docker-compose.yml down -v"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
