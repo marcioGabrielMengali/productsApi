@@ -8,19 +8,19 @@ datasource db {
 }
 
 model Product {
-  id    String  @id @default(uuid())
-  name  String
-  price Decimal
-  unity Int
+  id         String   @id @default(uuid())
+  name       String
+  price      Decimal
+  units      Int
   categoryId String
-  category Category @relation(fields: [categoryId], references: [id])
+  category   Category @relation(fields: [categoryId], references: [id])
 
   @@map("products")
 }
 
 model Category {
-  id String @id @default(uuid())
-  name String
+  id       String    @id @default(uuid())
+  name     String
   products Product[]
 
   @@map("categories")
