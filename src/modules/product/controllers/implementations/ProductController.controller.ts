@@ -11,7 +11,7 @@ const productRepository = new ProductRepository()
 
 export class ProductController implements IProductController {
     @formatResponse()
-    async findAll(request: Request, response: Response): Promise<any> {
+    async findAll(request: Request, response: Response): Promise<Product[]> {
         const productService: IProductService = new ProductService(productRepository)
         const products = await productService.findAll()
         return products

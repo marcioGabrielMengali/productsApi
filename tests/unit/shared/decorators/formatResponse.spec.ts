@@ -1,5 +1,4 @@
 import { formatResponse } from "../../../../src/shared/decorators/formatResponse.decorator"
-import { EHttpStatusCode } from "../../../../src/shared/enums/EHttpStatusCode.enum"
 import { mockedExpressRequest, mockedExpressResponse, mockedFuncionResponse } from "./mocks/formatResposeMock.mock"
 import { applyDecoratorStub } from "./stubs/formatResponseStub.stub"
 

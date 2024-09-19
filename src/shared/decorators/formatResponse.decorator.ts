@@ -6,7 +6,7 @@ function formatResponse() {
         const originalMethod = descriptor.value
         descriptor.value = async function (req: Request, res: Response, ...args: any[]) {
             const result = await originalMethod.apply(this, [req, res, ...args])
-            let response = {
+            const response = {
                 statusCode: EHttpStatusCode.OK,
                 data: result
             }
