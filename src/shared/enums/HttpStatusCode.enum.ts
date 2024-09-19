@@ -1,3 +1,3 @@
-export enum HttpStatusCode {
+export enum EHttpStatusCode {
     OK = 200
 }
