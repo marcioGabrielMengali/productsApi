@@ -15,7 +15,7 @@ async function seed() {
             name: faker.commerce.department()
         }
         categories.push(category)
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 10006; i++) {
             const product = {
                 name: faker.commerce.product(),
                 price: faker.commerce.price(),

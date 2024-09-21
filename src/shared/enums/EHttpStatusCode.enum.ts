@@ -1,3 +1,4 @@
 export enum EHttpStatusCode {
-    OK = 200
+    OK = 200,
+    NOTACCEPTABLE = 406
 }
