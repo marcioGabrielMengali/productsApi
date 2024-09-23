@@ -6,12 +6,15 @@ import { ProductRepository } from "../../repositories/implementations/ProductRep
 import { Request, Response } from "express";
 import 'reflect-metadata'
 import { formatResponse } from "../../../../shared/decorators/formatResponse.decorator";
+import { validator } from "../../../../shared/validators/validator";
+import { getProductsValidatorQueryParametersSchema } from "../../../../shared/validators/schemas/products.validator.schema";
 
 const productRepository = new ProductRepository()
 
 export class ProductController implements IProductController {
     @formatResponse()
     async findAll(request: Request, response: Response): Promise<Product[]> {
+        validator(getProductsValidatorQueryParametersSchema, request.query)
         const productService: IProductService = new ProductService(productRepository)
         const products = await productService.findAll()
         return products
