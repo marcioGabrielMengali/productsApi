@@ -131,3 +131,6 @@ dist
 
 # primsa
 prisma/migrations/
+
+#md files
+todo.md

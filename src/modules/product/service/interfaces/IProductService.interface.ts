@@ -1,5 +1,5 @@
-import { Product } from "@prisma/client";
+import { IFindalAllProducstResponseDto, IFindAllRequestProductsDto } from "../../dto/product.dto";
 
 export interface IProductService {
-    findAll(): Promise<Product[]>
+    findAll(parameters: IFindAllRequestProductsDto): Promise<IFindalAllProducstResponseDto>
 }
