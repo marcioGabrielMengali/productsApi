@@ -1,4 +1,3 @@
-import { Product } from "@prisma/client";
 import { Request, Response } from "express";
 import { IFindalAllProducstResponseDto } from "../../dto/product.dto";
 

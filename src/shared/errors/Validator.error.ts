@@ -3,10 +3,10 @@ import { EHttpStatusCode } from "../enums/EHttpStatusCode.enum"
 
 export class ValidatorError extends Error {
     statusCode?: number
-    detail: Object[]
+    detail: object[]
     type?: string
     title?: string
-    constructor(message: string, errors: Object[]) {
+    constructor(message: string, errors: object[]) {
         super(message)
         this.statusCode = EHttpStatusCode.BAD_REQUEST
         this.title = EHttpErrorMessage.BAD_REQUEST

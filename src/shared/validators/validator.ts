@@ -1,4 +1,4 @@
-import { unknown, z } from 'zod'
+import { z } from 'zod'
 import { ValidatorError } from '../errors/Validator.error'
 
 export const validator = (schema: z.ZodSchema, values: any) => {

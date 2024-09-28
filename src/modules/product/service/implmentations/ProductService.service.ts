@@ -1,4 +1,3 @@
-import { Product } from "@prisma/client";
 import { IProductService } from "../interfaces/IProductService.interface";
 import { IProductRepository } from "../../repositories/interfaces/IProductRepository.interface";
 import { IFindalAllProducstResponseDto, IFindAllRequestProductsDto } from "../../dto/product.dto";
