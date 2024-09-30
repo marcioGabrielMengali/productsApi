@@ -1,4 +1,4 @@
 export enum EHttpErrorMessage {
-    NOTACCEPTABLE = 'Not Acceptable',
+    NOT_ACCEPTABLE = 'Not Acceptable',
     BAD_REQUEST = 'Bad Request'
 }

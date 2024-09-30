@@ -1,5 +1,5 @@
 export enum EHttpStatusCode {
     OK = 200,
-    NOTACCEPTABLE = 406,
+    NOT_ACCEPTABLE = 406,
     BAD_REQUEST = 400
 }
