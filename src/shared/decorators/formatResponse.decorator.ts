@@ -25,7 +25,7 @@ function formatResponse() {
         };
         res.status(EHttpStatusCode.OK).json(response);
       } catch (error) {
-        const errorType = erro as unknown as ValidatorError;
+        const errorType = error as unknown as ValidatorError;
         logger.error(
           `Decorator :: ${formatResponse.name} :: error :: ${JSON.stringify(
             error
