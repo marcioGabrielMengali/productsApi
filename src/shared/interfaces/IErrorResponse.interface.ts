@@ -3,4 +3,5 @@ export interface IErrorResponse {
     title: string
     statusCode: number
     detail: string
+    message: string
 }

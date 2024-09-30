@@ -5,16 +5,17 @@ import { ProductRepository } from "../../repositories/implementations/ProductRep
 import { Request } from "express";
 import 'reflect-metadata'
 import { formatResponse } from "../../../../shared/decorators/formatResponse.decorator";
-import { validator } from "../../../../shared/validators/validator";
 import { getProductsValidatorQueryParametersSchema } from "../../../../shared/validators/schemas/products.validator.schema";
 import { IFindalAllProducstResponseDto, IFindAllRequestProductsDto } from "../../dto/product.dto";
+import { requestValidator } from "../../../../shared/decorators/requestValidator.decorator";
+import { EValidationRequestType } from "../../../../shared/enums/EValidationRequestType.enum";
 
 const productRepository = new ProductRepository()
 
 export class ProductController implements IProductController {
     @formatResponse()
+    @requestValidator(getProductsValidatorQueryParametersSchema, EValidationRequestType.QUERY_PARAMETERS)
     async findAll(request: Request): Promise<IFindalAllProducstResponseDto> {
-        validator(getProductsValidatorQueryParametersSchema, request.query)
         const findAllParameters: IFindAllRequestProductsDto = request.query as unknown as IFindAllRequestProductsDto
         const productService: IProductService = new ProductService(productRepository)
         const result: IFindalAllProducstResponseDto = await productService.findAll(findAllParameters)

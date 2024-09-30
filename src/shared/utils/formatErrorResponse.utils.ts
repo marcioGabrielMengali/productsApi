@@ -5,6 +5,7 @@ export const formatErrorResponse = (error: any): IErrorResponse => {
         type: error.type,
         title: error.title,
         statusCode: error.statusCode,
-        detail: error.detail
+        detail: error.detail,
+        message: error.message
     }
 }

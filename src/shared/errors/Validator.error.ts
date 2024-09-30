@@ -1,3 +1,4 @@
+import { EHttpErrorLink } from "../enums/EHttpErrorLink.enum"
 import { EHttpErrorMessage } from "../enums/EHttpErrorMessage.enum"
 import { EHttpStatusCode } from "../enums/EHttpStatusCode.enum"
 
@@ -10,7 +11,7 @@ export class ValidatorError extends Error {
         super(message)
         this.statusCode = EHttpStatusCode.BAD_REQUEST
         this.title = EHttpErrorMessage.BAD_REQUEST
-        this.type = 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400'
+        this.type = EHttpErrorLink.BAD_REQUEST
         this.detail = errors
     }
 }
