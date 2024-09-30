@@ -1,6 +1,6 @@
 import { createLogger, format, transports } from 'winston';
 import { Format } from 'logform';
-import { LOG_FILE } from '../consts/const';
+import { COMBINED_LOG_FILE, LOG_FILE } from '../consts/const';
 
 
 
@@ -27,7 +27,7 @@ const logger = createLogger({
             filename: LOG_FILE,
             level: 'error',
         }),
-        new transports.File({ filename: 'logs/combined.log' }),
+        new transports.File({ filename: COMBINED_LOG_FILE }),
     ],
 });
 
