@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { EHttpStatusCode } from "../enums/EHttpStatusCode.enum";
 import { ValidatorError } from "../errors/Validator.error";
 import { formatErrorResponse } from "../utils/formatErrorResponse.utils";
+import logger from "../log/logger";
 
 function formatResponse() {
     return function (target: any, propertKey: any, descriptor: PropertyDescriptor) {
@@ -16,6 +17,7 @@ function formatResponse() {
                 res.status(EHttpStatusCode.OK).json(response)
             } catch (error) {
                 if (error instanceof ValidatorError) {
+                    logger.error(`Decorator :: ${formatResponse.name} :: error :: ${JSON.stringify(error)}`)
                     res.status(error.statusCode as number).json(formatErrorResponse(error))
                 }
             }
