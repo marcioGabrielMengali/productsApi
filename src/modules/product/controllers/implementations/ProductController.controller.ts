@@ -23,6 +23,7 @@ export class ProductController implements IProductController {
   )
   @formatResponse()
   async findAll(request: Request): Promise<IFindalAllProducstResponseDto> {
+    logger.info(`${ProductController.name} :: method :: findAll`);
     const findAllParameters: IFindAllRequestProductsDto =
       request.query as unknown as IFindAllRequestProductsDto;
     const productService: IProductService = new ProductService(
@@ -32,9 +33,9 @@ export class ProductController implements IProductController {
       findAllParameters
     );
     logger.info(
-      `${ProductController.name} :: method :: ${
-        this.findAll.name
-      } :: result :: ${JSON.stringify(result)}`
+      `${
+        ProductController.name
+      } :: method :: findAll :: result :: ${JSON.stringify(result)}`
     );
     return result;
   }
