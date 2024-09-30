@@ -7,7 +7,7 @@ const logFormat: Format = format.printf(({ timestamp, level, message }) => {
 });
 
 const logger = createLogger({
-  level: NODE_ENV,
+  level: NODE_ENV === "dev" ? "debug" : "info",
   format: format.combine(
     format.timestamp(),
     format.errors({ stack: true }),
