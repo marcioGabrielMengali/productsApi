@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { productRoutes } from "./productRoutes";
-import { URL_PRODUCTS } from "../shared/consts/const";
+import { PRODUCTS_ENDPOINT } from "../shared/consts/const";
 
 const routes = Router();
 
-routes.use(`/${URL_PRODUCTS}`, productRoutes);
+routes.use(`/${PRODUCTS_ENDPOINT}`, productRoutes);
 
 export default routes;
