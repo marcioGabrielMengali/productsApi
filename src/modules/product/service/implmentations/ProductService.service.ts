@@ -5,9 +5,9 @@ import {
   IFindAllRequestProductsDto,
 } from "../../dto/product.dto";
 import { calculatePage } from "../../utils/repository.uitl";
-import { BadRequest } from "../../../../shared/errors/BadRequest.error";
 import { formatFindAllResponse } from "../../utils/product.utils";
 import logger from "../../../../shared/log/logger";
+import { BadRequestError } from "../../../../shared/errors/BadRequest.error";
 
 export class ProductService implements IProductService {
   constructor(private readonly productRepository: IProductRepository) {}
@@ -22,7 +22,7 @@ export class ProductService implements IProductService {
     const totalProducts = await this.productRepository.countAll();
     const totalPages = calculatePage(totalProducts, parameters.limit);
     if (parameters.page > totalPages) {
-      throw new BadRequest("Page not found");
+      throw new BadRequestError("Page not found");
     }
     const page = parameters.page - 1;
     const limit = Number(parameters.limit);
