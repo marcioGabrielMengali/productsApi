@@ -9,7 +9,7 @@
 - [API Documentatios](#api-documentatios)
   - [Curls](#curls)
   - [Responses](#responses)
-    - [400](#400)
+    - [500](#500)
 
 # About The Project
 
@@ -30,4 +30,14 @@ This is an simple products api for study, that will follow the rules of the matu
 
 ## Responses
 
-### 400
+### 500
+
+```json
+{
+  "type": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500",
+  "title": "Internal Server Error",
+  "statusCode": 500,
+  "detail": "Error on Database",
+  "message": "Error on Database"
+}
+```
