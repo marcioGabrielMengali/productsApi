@@ -4,15 +4,15 @@ import { ProductService } from "../../service/implmentations/ProductService.serv
 import { ProductRepository } from "../../repositories/implementations/ProductRepository.repository";
 import { Request } from "express";
 import "reflect-metadata";
-import { formatResponse } from "../../../../shared/decorators/formatResponse.decorator";
-import { getProductsValidatorQueryParametersSchema } from "../../../../shared/validators/schemas/products.validator.schema";
+import { formatResponse } from "@shared/decorators/formatResponse.decorator";
+import { getProductsValidatorQueryParametersSchema } from "@shared/validators/schemas/products.validator.schema";
 import {
   IFindalAllProducstResponseDto,
   IFindAllRequestProductsDto,
 } from "../../dto/product.dto";
-import { requestValidator } from "../../../../shared/decorators/requestValidator.decorator";
-import { EValidationRequestType } from "../../../../shared/enums/EValidationRequestType.enum";
-import logger from "../../../../shared/log/logger";
+import { requestValidator } from "@shared/decorators/requestValidator.decorator";
+import { EValidationRequestType } from "@shared/enums/EValidationRequestType.enum";
+import logger from "@shared/log/logger";
 
 const productRepository = new ProductRepository();
 

@@ -1,6 +1,6 @@
 import { Product } from "@prisma/client";
 import { IFindalAllProducstResponseDto } from "../dto/product.dto";
-import { URL, PRODUCTS_ENDPOINT } from "../../../shared/consts/const";
+import { URL, PRODUCTS_ENDPOINT } from "@shared/consts/const";
 
 export const formatFindAllResponse = (
   products: Product[],

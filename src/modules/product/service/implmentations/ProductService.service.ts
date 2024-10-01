@@ -6,8 +6,8 @@ import {
 } from "../../dto/product.dto";
 import { calculatePage } from "../../utils/repository.uitl";
 import { formatFindAllResponse } from "../../utils/product.utils";
-import logger from "../../../../shared/log/logger";
-import { BadRequestError } from "../../../../shared/errors/BadRequest.error";
+import logger from "@shared/log/logger";
+import { BadRequestError } from "@shared/errors/BadRequest.error";
 
 export class ProductService implements IProductService {
   constructor(private readonly productRepository: IProductRepository) {}

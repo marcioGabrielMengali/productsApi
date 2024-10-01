@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { productRoutes } from "./productRoutes";
-import { PRODUCTS_ENDPOINT } from "../shared/consts/const";
+import { PRODUCTS_ENDPOINT } from "@shared/consts/const";
 
 const routes = Router();
 
