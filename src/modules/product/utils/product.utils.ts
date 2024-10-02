@@ -1,6 +1,6 @@
 import { Product } from "@prisma/client";
 import { IFindalAllProducstResponseDto } from "../dto/product.dto";
-import { URL, PRODUCTS_ENDPOINT } from "@shared/consts/const";
+import { URL, PRODUCTS_ENDPOINT, API_VERSION } from "@shared/consts/const";
 
 export const formatFindAllResponse = (
   products: Product[],
@@ -13,13 +13,13 @@ export const formatFindAllResponse = (
   return {
     _links: {
       self: {
-        href: `${URL}/${PRODUCTS_ENDPOINT}?page=${page}?limit=${limit}`,
+        href: `${URL}/${API_VERSION}/${PRODUCTS_ENDPOINT}?page=${page}?limit=${limit}`,
       },
       first: {
-        href: `${URL}/${PRODUCTS_ENDPOINT}?page=1?limit=${limit}`,
+        href: `${URL}/${API_VERSION}/${PRODUCTS_ENDPOINT}?page=1?limit=${limit}`,
       },
       last: {
-        href: `${URL}/${PRODUCTS_ENDPOINT}?page=${page_count}?limit=${limit}`,
+        href: `${URL}/${API_VERSION}/${PRODUCTS_ENDPOINT}?page=${page_count}?limit=${limit}`,
       },
     },
     _embedded: {

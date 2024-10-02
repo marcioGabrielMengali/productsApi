@@ -9,7 +9,7 @@ const VERSION = API_VERSION;
 
 const app: Express = express();
 app.use(validateAcceptHeader);
-app.use(VERSION, routes);
+app.use(`/${VERSION}`, routes);
 
 app.listen(port, () =>
   logger.info(`[Server]: Server is running on port: http://localhost:${port}`)
