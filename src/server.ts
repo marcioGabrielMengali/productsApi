@@ -1,3 +1,5 @@
+import "reflect-metadata";
+import "@shared/container/index";
 import express, { Express } from "express";
 import routes from "./routes";
 import { validateAcceptHeader } from "./shared/middlewares/headers.middleware";

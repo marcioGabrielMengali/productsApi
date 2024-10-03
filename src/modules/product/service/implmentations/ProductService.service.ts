@@ -8,9 +8,15 @@ import { calculatePage } from "../../utils/repository.uitl";
 import { formatFindAllResponse } from "../../utils/product.utils";
 import logger from "@shared/log/logger";
 import { BadRequestError } from "@shared/errors/BadRequestError.error";
+import { inject, injectable } from "tsyringe";
+import { ProductRepository } from "@modules/product/repositories/implementations/ProductRepository.repository";
 
+@injectable()
 export class ProductService implements IProductService {
-  constructor(private readonly productRepository: IProductRepository) {}
+  constructor(
+    @inject(ProductRepository.name)
+    private readonly productRepository: IProductRepository
+  ) {}
   async findAll(
     parameters: IFindAllRequestProductsDto
   ): Promise<IFindalAllProducstResponseDto> {

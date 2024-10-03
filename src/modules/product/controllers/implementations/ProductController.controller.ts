@@ -1,9 +1,8 @@
-import { IProductController } from "../interfaces/IProductController.interface";
-import { IProductService } from "../../service/interfaces/IProductService.interface";
-import { ProductService } from "../../service/implmentations/ProductService.service";
-import { ProductRepository } from "../../repositories/implementations/ProductRepository.repository";
-import { Request } from "express";
 import "reflect-metadata";
+import { IProductController } from "../interfaces/IProductController.interface";
+import { IProductService } from "@modules/product/service/interfaces/IProductService.interface";
+import { ProductService } from "@modules/product/service/implmentations/ProductService.service";
+import { Request } from "express";
 import { formatResponse } from "@shared/decorators/formatResponse.decorator";
 import { getProductsValidatorQueryParametersSchema } from "@shared/validators/schemas/products.validator.schema";
 import {
@@ -13,10 +12,10 @@ import {
 import { requestValidator } from "@shared/decorators/requestValidator.decorator";
 import { EValidationRequestType } from "@shared/enums/EValidationRequestType.enum";
 import logger from "@shared/log/logger";
-
-const productRepository = new ProductRepository();
+import { container } from "tsyringe";
 
 export class ProductController implements IProductController {
+  constructor() {}
   @requestValidator(
     getProductsValidatorQueryParametersSchema,
     EValidationRequestType.QUERY_PARAMETERS
@@ -24,11 +23,9 @@ export class ProductController implements IProductController {
   @formatResponse()
   async findAll(request: Request): Promise<IFindalAllProducstResponseDto> {
     logger.info(`${ProductController.name} :: method :: findAll`);
+    const productService = container.resolve(ProductService);
     const findAllParameters: IFindAllRequestProductsDto =
       request.query as unknown as IFindAllRequestProductsDto;
-    const productService: IProductService = new ProductService(
-      productRepository
-    );
     const result: IFindalAllProducstResponseDto = await productService.findAll(
       findAllParameters
     );
