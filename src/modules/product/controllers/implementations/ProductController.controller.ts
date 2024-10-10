@@ -1,6 +1,5 @@
 import "reflect-metadata";
 import { IProductController } from "../interfaces/IProductController.interface";
-import { IProductService } from "@modules/product/service/interfaces/IProductService.interface";
 import { ProductService } from "@modules/product/service/implmentations/ProductService.service";
 import { Request } from "express";
 import { formatResponse } from "@shared/decorators/formatResponse.decorator";
@@ -12,7 +11,7 @@ import {
 import { requestValidator } from "@shared/decorators/requestValidator.decorator";
 import { EValidationRequestType } from "@shared/enums/EValidationRequestType.enum";
 import logger from "@shared/log/logger";
-import { container } from "tsyringe";
+import { container } from "@shared/container/index";
 
 export class ProductController implements IProductController {
   constructor() {}

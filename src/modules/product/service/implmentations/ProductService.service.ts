@@ -27,7 +27,7 @@ export class ProductService implements IProductService {
     );
     const totalProducts = await this.productRepository.countAll();
     const totalPages = calculatePage(totalProducts, parameters.limit);
-    if (parameters.page > totalPages) {
+    if (parameters.page > totalPages && totalPages !== 0) {
       throw new BadRequestError("Page not found");
     }
     const page = parameters.page - 1;
@@ -35,11 +35,11 @@ export class ProductService implements IProductService {
     const products = await this.productRepository.findAll(page, limit);
     const response: IFindalAllProducstResponseDto = formatFindAllResponse(
       products,
-      totalPages,
+      totalPages !== 0 ? totalPages : 0,
       limit,
       products.length,
       totalProducts,
-      parameters.page
+      totalPages !== 0 ? parameters.page : 0
     );
     logger.info(
       `${ProductService.name} :: method :: ${
