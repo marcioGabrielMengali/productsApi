@@ -42,7 +42,7 @@ function requestValidator(
       const { values, errorMessage } = getValues(req, typeVatidation);
       try {
         schema.parse(values);
-        originalMethod.call(this, req, res, args);
+        await originalMethod.call(this, req, res, args);
       } catch (error) {
         logger.error(
           `Decorator :: ${requestValidator.name} :: error :: ${JSON.stringify(

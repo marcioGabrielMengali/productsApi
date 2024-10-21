@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { IProductController } from "../interfaces/IProductController.interface";
 import { ProductService } from "@modules/product/service/implmentations/ProductService.service";
-import { Request } from "express";
+import { Request, Response } from "express";
 import { formatResponse } from "@shared/decorators/formatResponse.decorator";
 import { getProductsValidatorQueryParametersSchema } from "@shared/validators/schemas/products.validator.schema";
 import {
@@ -20,7 +20,10 @@ export class ProductController implements IProductController {
     EValidationRequestType.QUERY_PARAMETERS
   )
   @formatResponse()
-  async findAll(request: Request): Promise<IFindalAllProducstResponseDto> {
+  async findAll(
+    request: Request,
+    response: Response
+  ): Promise<IFindalAllProducstResponseDto> {
     logger.info(`${ProductController.name} :: method :: findAll`);
     const productService = container.resolve(ProductService);
     const findAllParameters: IFindAllRequestProductsDto =
