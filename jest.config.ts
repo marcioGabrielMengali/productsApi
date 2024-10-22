@@ -12,8 +12,9 @@ const config: Config = {
     "tests/",
     "<rootDir>/src/server.ts",
     "\\.interface\\.ts$",
+    "\\.dto\\.ts$",
   ],
-  testPathIgnorePatterns: ["\\.interface\\.ts$"],
+  testPathIgnorePatterns: ["\\.interface\\.ts$", "\\.dto\\.ts$"],
   moduleNameMapper: {
     "^@shared/(.*)$": "<rootDir>/src/shared/$1",
     "^@modules/(.*)$": "<rootDir>/src/modules/$1",
