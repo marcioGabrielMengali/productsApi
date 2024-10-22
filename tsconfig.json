@@ -32,7 +32,8 @@
     "paths": {
       "@shared/*": ["src/shared/*"],
       "@modules/*": ["src/modules/*"],
-      "@test/*": ["tests/*"]
+      "@test/*": ["tests/*"],
+      "@src/*": ["src/*"]
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */

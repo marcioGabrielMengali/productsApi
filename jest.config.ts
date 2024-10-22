@@ -19,7 +19,9 @@ const config: Config = {
     "^@shared/(.*)$": "<rootDir>/src/shared/$1",
     "^@modules/(.*)$": "<rootDir>/src/modules/$1",
     "^@test/(.*)$": "<rootDir>/tests/$1",
+    "^@src(.*)$": "<rootDir>/src/$1",
   },
+  setupFilesAfterEnv: ["./jest.setup.ts"],
 };
 
 export default config;
