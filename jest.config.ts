@@ -11,7 +11,9 @@ const config: Config = {
     "/shared/enums/",
     "tests/",
     "<rootDir>/src/server.ts",
+    "\\.interface\\.ts$",
   ],
+  testPathIgnorePatterns: ["\\.interface\\.ts$"],
   moduleNameMapper: {
     "^@shared/(.*)$": "<rootDir>/src/shared/$1",
     "^@modules/(.*)$": "<rootDir>/src/modules/$1",
